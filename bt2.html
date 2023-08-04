@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bt2</title>
+</head>
+
+<body>
+    <script>
+        class Apple {
+            constructor(weight) {
+                this.weight = weight;
+            }
+            getWeight = () => {
+                return this.weight;
+            }
+            downWeight() {
+                if (this.weight > 0) {
+                    this.weight--;
+                }
+            }
+        }
+
+        class Human {
+            constructor(name, gender, weight) {
+                this.name = name;
+                this.gender = gender;
+                this.weight = weight;
+            }
+            speak() {
+                console.log("Chao ban");
+            }
+            eat(apple) {
+                if (apple.getWeight() > 0) {
+                    apple.downWeight();
+                    this.weight++;
+                    this.speak("ngon qué");
+                } else {
+                    this.speak("Còn cái nịt");
+                }
+            }
+
+            checkApple(apple) {
+                console.log("Quả táo còn " + apple.getWeight() + " đv");
+            }
+            checkHuman = (human)=>{
+                return human.name + " " + human.gender + " " + human.weight;
+            }
+        }
+        let taoTau = new Apple(8)
+        let adam = new Human("adam", "male", 50);
+        let eva = new Human("eva", "female", 45);
+        adam.speak();
+        adam.eat(taoTau);
+        console.log(adam.weight, taoTau.weight);
+        console.log(adam.checkHuman(eva));
+    </script>
+</body>
+
+</html>

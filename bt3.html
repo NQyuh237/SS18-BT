@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bt3</title>
+</head>
+
+<body>
+    <script>
+        function Switch() {
+            this.state = false;
+            this.connect = function (light) {
+                this.light = light;
+            };
+            this.congtac = function () {
+                this.state = !this.state;
+                if (this.state) {
+                    this.light.turnOn();
+                } else {
+                    this.light.turnOff();
+                }
+            };
+        }
+        function Light() {
+            this.state = false;
+            this.turnOn = function () {
+                this.state = true;
+                console.log("Bóng đèn đã bật");
+            };
+            this.turnOff = function () {
+                this.state = false;
+                console.log("Bóng đèn đã tắt");
+            };
+        }
+
+        let mySwitch = new Switch();
+        let myLight = new Light();
+        mySwitch.connect(myLight);
+        for (let i = 0; i < 20; i++) {
+            mySwitch.congtac();
+        }
+
+    </script>
+</body>
+
+</html>

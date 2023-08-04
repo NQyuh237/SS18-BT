@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bt5.2</title>
+</head>
+
+<body>
+    <script>
+        class Student {
+            constructor(id, name, gender, age, mark) {
+                this.id = id;
+                this.name = name;
+                this.gender = gender;
+                this.age = age;
+                this.mark = mark;
+            }
+        }
+        let value = new Student(1, "nguyen van a", "male", 20, 7);
+        console.log(value);
+        class Students extends Student {
+            constructor(id, name, gender, age, mark) {
+                super(id, name, gender, age, mark);
+            }
+        }
+        let student1 = new Students(2, "nguyen van b", "male", 25, 8);
+        let studentList = [];
+        studentList.push(student1);
+        console.log(student1);
+        student1.mark > value.mark ? console.log(student1) : console.log(value);
+
+        let student2 = new Students(3, "nguyen van c", "female", 30, 4);
+        studentList.push(student2);
+        console.log(student2);
+        let dtb = 0;
+        for (let i = 0; i < studentList.length; i++) {
+            dtb += studentList[i].mark;
+        }
+        let tbt = dtb / studentList.length;
+        if (tbt > 7.5) {
+            console.log("lop kha");
+        } else if (tbt > 5) {
+            console.log("lop tb");
+        } else {
+            console.log("lop yeu");
+        }
+    </script>
+</body>
+
+</html>
